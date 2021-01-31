@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    username: root
+#    password:xxxxxx
+    url: jdbc:mysql://localhost:3306/springdata01?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    initialSize: 5
+    filters: wall,stat
