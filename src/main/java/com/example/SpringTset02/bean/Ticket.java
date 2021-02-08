@@ -6,6 +6,16 @@ public class Ticket {
     private String ticket_starttime;
     private String ticket_endtime;
     private String ticket_state;
+    private String film_name;
+
+    public String getFilm_name() {
+        return film_name;
+    }
+
+    public void setFilm_name(String film_name) {
+        this.film_name = film_name;
+    }
+
 
     public Integer getAccount_id() {
         return account_id;

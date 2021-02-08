@@ -7,6 +7,6 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface ticketMapper {
 
-    @Select("select * from ticket where account_id=#{id}")
+    @Select("select * from ticket join film on ticket.film_id=film.film_id where account_id=#{id}")
     public Ticket[] GetByAccount(Integer id);
 }
