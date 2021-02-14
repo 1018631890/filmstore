@@ -1,6 +1,8 @@
 package com.example.SpringTset02.bean;
 
-public class Film {
+import java.io.Serializable;
+
+public class Film implements Serializable {
     private Integer film_id;
     private String film_name;
     private String film_time;

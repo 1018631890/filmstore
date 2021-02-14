@@ -1,6 +1,8 @@
 package com.example.SpringTset02.bean;
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable {
     private Integer account_id;
     private String account_name;
     private String account_password;

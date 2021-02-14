@@ -3,6 +3,7 @@ package com.example.SpringTset02.controller;
 import com.example.SpringTset02.bean.Film;
 import com.example.SpringTset02.mapper.filmMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +15,7 @@ public class FilmController {
     private filmMapper filmmapper;
 
     @GetMapping("/film/getbyname/")
+    @Cacheable(value = "film")
     public Film GetfilmByName(String name)
     {
         return filmmapper.GetByName(name);
@@ -26,6 +28,7 @@ public class FilmController {
     }
 
     @GetMapping("/film/getall")
+    @Cacheable(value = "allfilm")
     public Film[] GetAllfilm()
     {
         return filmmapper.GetAll();

@@ -3,6 +3,7 @@ package com.example.SpringTset02.controller;
 import com.example.SpringTset02.bean.News;
 import com.example.SpringTset02.mapper.newsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,6 +14,7 @@ public class NewsController {
     private newsMapper newsmapper;
 
     @GetMapping("/news/getall")
+    @Cacheable(value = "news")
     public News[] GetALLnews()
     {
         return newsmapper.GetAll();
