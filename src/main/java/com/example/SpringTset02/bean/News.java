@@ -2,7 +2,7 @@ package com.example.SpringTset02.bean;
 
 import java.io.Serializable;
 
-public class News implements Serializable {
+public class News {
     private Integer news_id;
     private String news_type;
     private String news_title;

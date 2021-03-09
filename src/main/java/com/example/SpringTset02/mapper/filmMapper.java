@@ -9,6 +9,9 @@ public interface filmMapper {
     @Select("select * from film where film_name=#{name}")
     Film GetByName(String name);
 
+    @Select("select * from film where film_id=#{id}")
+    Film GetById(Integer id);
+
     @Select("select * from film where film_will=#{will}")
     Film[] GetWill(String will);
 

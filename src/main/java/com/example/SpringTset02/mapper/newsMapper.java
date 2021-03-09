@@ -9,6 +9,9 @@ public interface newsMapper {
     @Select("select * from news")
     public News[] GetAll();
 
+    @Select("select * from news where news_title=#{title}")
+    public News GetbyTitle(String title);
+
     @Insert("insert into news(news_type,news_title,news_time,news_text,summary) values(#{news_type},#{news_title},#{news_time},#{news_text},#{summary})")
     public int Insert(News news);
 

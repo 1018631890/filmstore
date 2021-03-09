@@ -2,7 +2,7 @@ package com.example.SpringTset02.bean;
 
 import java.io.Serializable;
 
-public class Ticket implements Serializable {
+public class Ticket {
     private Integer account_id;
     private Integer film_id;
     private String ticket_starttime;

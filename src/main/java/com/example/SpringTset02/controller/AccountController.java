@@ -2,6 +2,7 @@ package com.example.SpringTset02.controller;
 
 import com.example.SpringTset02.bean.Account;
 import com.example.SpringTset02.mapper.accountMapper;
+import com.example.SpringTset02.service.accountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,48 +14,44 @@ import org.springframework.web.bind.annotation.RestController;
 public class AccountController {
 
     @Autowired
-    accountMapper mapper;
+    accountService accountservice;
 
     @GetMapping("/account/getbyname/")
-    @CrossOrigin
     public Account GetaccountByName( String name)
     {
-        return mapper.GetByName(name);
+        Account account=accountservice.getbyname(name);
+        return account;
     }
 
     @GetMapping("/account/getbyid/{id}")
     public Account GetaccountById(@PathVariable("id") Integer id)
     {
-        return mapper.GetById(id);
+        Account account=accountservice.getbyid(id);
+        return account;
     }
 
     @GetMapping("/account/insert")
-    public int Insertaccount(Account account)
+    public boolean Insertaccount(Account account)
     {
-        if(mapper.Insert(account)>0)
-        {
-            return 1;
-        }
-        else {
-            return -1;
-        }
+        Account account1=accountservice.insert(account);
+        if (account1.getAccount_id()!=null)
+            return true;
+        else
+            return false;
     }
 
     @GetMapping("/account/update")
-    public Account Updateaccount(Account account)
+    public boolean Updateaccount(Account account)
     {
-        if(mapper.Update(account)>0)
-        {
-            return mapper.GetById(account.getAccount_id());
-        }else {
-            return null;
-        }
+        Account account1=accountservice.update(account);
+        return true;
     }
 
     @GetMapping("/account/getall")
     public Account[] Getuserlist()
     {
-        return mapper.GetAll();
+        Account account[]=accountservice.getall();
+        return account;
     }
 
 }
