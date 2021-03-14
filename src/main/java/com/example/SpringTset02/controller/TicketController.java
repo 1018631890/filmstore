@@ -5,15 +5,17 @@ import com.example.SpringTset02.mapper.ticketMapper;
 import com.example.SpringTset02.service.ticketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/ticket")
 public class TicketController {
 
     @Autowired
     private ticketService ticketservice;
 
-    @GetMapping("/ticket/getbyaccount/")
+    @GetMapping("/getbyaccount/")
     public Ticket[] GetticketByAccount(Integer id)
     {
         Ticket ticket[]=ticketservice.getbyaccount(id);

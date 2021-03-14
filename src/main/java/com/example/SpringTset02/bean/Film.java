@@ -11,6 +11,33 @@ public class Film {
     private String film_evaluate;
     private String film_will;
     private String film_pic;
+    private String film_timelong;
+    private String film_type;
+    private String film_languge;
+
+    public String getFilm_timelong() {
+        return film_timelong;
+    }
+
+    public void setFilm_timelong(String film_timelong) {
+        this.film_timelong = film_timelong;
+    }
+
+    public String getFilm_type() {
+        return film_type;
+    }
+
+    public void setFilm_type(String film_type) {
+        this.film_type = film_type;
+    }
+
+    public String getFilm_languge() {
+        return film_languge;
+    }
+
+    public void setFilm_languge(String film_languge) {
+        this.film_languge = film_languge;
+    }
 
     public String getFilm_will() {
         return film_will;
