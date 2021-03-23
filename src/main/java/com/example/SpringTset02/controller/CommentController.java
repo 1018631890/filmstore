@@ -29,6 +29,16 @@ public class CommentController {
         return comment;
     }
 
+    @GetMapping("/iscomment")
+    public Boolean GetisComment(Integer film_id,Integer account_id)
+    {
+        Comment comment=commentservice.getcomment(film_id,account_id);
+        if(comment!=null)
+            return true;
+        else
+            return false;
+    }
+
     @GetMapping("/getcomment")
     public Comment GetComment(Integer film_id,Integer account_id)
     {

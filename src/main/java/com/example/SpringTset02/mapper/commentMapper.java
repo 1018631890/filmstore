@@ -22,6 +22,6 @@ public interface commentMapper {
     @Update("update comment set comment=#{comment},mark=#{mark},like=#{like},title=#{title},time=#{time} where film_id=#{film_id} and account_id=#{account_id}")
     int Update(Comment comment);
 
-    @Delete("delete from comment where account_id=#{account_id},film_id=#{film_id}")
+    @Delete("delete from comment where account_id=#{account_id} and film_id=#{film_id}")
     int Delete(Comment comment);
 }

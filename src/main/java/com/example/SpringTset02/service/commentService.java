@@ -45,6 +45,7 @@ public class commentService {
 
     public Comment delete(Comment comment)
     {
+//        System.out.println(comment.getFilm_id()+","+comment.getAccount_id());
         commentmapper.Delete(comment);
         Comment comment1=commentmapper.GetComment(comment.getFilm_id(),comment.getAccount_id());
         return comment1;

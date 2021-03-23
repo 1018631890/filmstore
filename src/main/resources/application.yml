@@ -8,3 +8,9 @@ spring:
 
     initialSize: 5
     filters: wall,stat
+fdfs:
+  so-timeout: 1500
+  connect-timeout: 600
+  pool:
+    jmx-enable: false
+  tracker-list: 82.156.183.252:22122
