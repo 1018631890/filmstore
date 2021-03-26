@@ -9,7 +9,7 @@ spring:
     initialSize: 5
     filters: wall,stat
 fdfs:
-  so-timeout: 1500
+  so-timeout: 5000
   connect-timeout: 600
   pool:
     jmx-enable: false

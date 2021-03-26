@@ -31,15 +31,18 @@ class SpringApplication03Tests {
 
     @Test
     public void contextLoads() throws FileNotFoundException {
-        File file = new File("E://Idea//menu//SpringTest03//src//main//resources//static//filmimage//数码宝贝.png");
-        String extName=file.getName().substring(file.getName().lastIndexOf(".")+1);
-        FileInputStream inputStream = new FileInputStream(file);
+//        File file = new File("E://Idea//menu//SpringTest03//src//main//resources//static//image//blackfilm.png");
+//        String extName=file.getName().substring(file.getName().lastIndexOf(".")+1);
+//        System.out.println(extName);
+//        FileInputStream inputStream = new FileInputStream(file);
 //        上传（文件流，文件长度，后缀，null）
-        StorePath storePath = fastFileStorageClient.uploadFile(inputStream, file.length(), extName, null);
-        System.out.println(storePath.getFullPath());
+//        StorePath storePath = fastFileStorageClient.uploadFile(inputStream, file.length(), extName, null);
+//        System.out.println(storePath.getFullPath());
 //        删除（路径）
-        fastFileStorageClient.deleteFile(storePath.getFullPath());
-        System.out.println(storePath.getFullPath());
+        fastFileStorageClient.deleteFile("group1/M00/00/00/rBUAEGBat0qAT711AABwUI0XOqs117.png");
+//        System.out.println(storePath.getFullPath());
+
+
     }
 
 }

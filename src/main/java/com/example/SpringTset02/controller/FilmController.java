@@ -1,6 +1,7 @@
 package com.example.SpringTset02.controller;
 
 import com.example.SpringTset02.bean.Film;
+import com.example.SpringTset02.service.fdfsService;
 import com.example.SpringTset02.service.filmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
@@ -15,6 +16,9 @@ public class FilmController {
 
     @Autowired
     private filmService filmservice;
+
+    @Autowired
+    private fdfsService fdfsservice;
 
     @GetMapping("/getbyname/")
     public Film GetfilmByName(String name)
@@ -49,16 +53,23 @@ public class FilmController {
     public boolean Deletefilm(Integer id)
     {
         Film film=filmservice.delete(id);
-        if(film==null)
-            return true;
-        else
-            return false;
+        System.out.println(film.getFilm_pic());
+        String path = film.getFilm_pic().substring(27);
+        System.out.println(path);
+        fdfsservice.delete(path);
+        return true;
     }
 
     @GetMapping("/update")
     public boolean Updatefilm(Film film)
     {
-        Film film1=filmservice.update(film);
+        Film[] filmlist=filmservice.update(film);
+        String path = filmlist[0].getFilm_pic();
+        System.out.println("旧路径"+path);
+        System.out.println("新路径"+filmlist[1].getFilm_pic());
+        path = path.substring(27);
+        System.out.println("删除路径"+path);
+        fdfsservice.delete(path);
         return true;
     }
 

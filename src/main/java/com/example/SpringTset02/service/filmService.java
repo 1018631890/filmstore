@@ -43,17 +43,20 @@ public class filmService {
 
     public Film delete(Integer id)
     {
+        Film film = filmmapper.GetById(id);
+//        System.out.println(film.getFilm_pic());
         filmmapper.Delete(id);
-        Film film=filmmapper.GetById(id);
         return film;
     }
 
 
-    public Film update(Film film)
+    public Film[] update(Film film)
     {
+        Film filmlist[] = new Film[2];
+        filmlist[0] = filmmapper.GetById(film.getFilm_id());
         filmmapper.Update(film);
-        Film film1 = filmmapper.GetById(film.getFilm_id());
-        return film1;
+        filmlist[1] = filmmapper.GetById(film.getFilm_id());
+        return filmlist;
     }
 
     @Cacheable(value = "film",key = "#s")
