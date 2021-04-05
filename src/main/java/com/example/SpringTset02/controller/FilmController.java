@@ -55,7 +55,7 @@ public class FilmController {
         Film film=filmservice.delete(id);
         System.out.println(film.getFilm_pic());
         String path = film.getFilm_pic().substring(27);
-        System.out.println(path);
+        System.out.println("删除路径"+path);
         fdfsservice.delete(path);
         return true;
     }
