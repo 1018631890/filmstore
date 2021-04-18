@@ -21,4 +21,35 @@ public class TicketController {
         Ticket ticket[]=ticketservice.getbyaccount(id);
         return ticket;
     }
+
+    @GetMapping("/insert")
+    public boolean insertTicket(Ticket ticket)
+    {
+        Ticket ticket1=ticketservice.insert(ticket);
+        if (ticket1.getTicket_num()!=null)
+            return true;
+        else
+            return false;
+    }
+
+    @GetMapping("/delete")
+    public boolean deleteTicket(Integer account_id,Integer film_id)
+    {
+        Ticket ticket=ticketservice.delete(account_id, film_id);
+        return true;
+    }
+
+    @GetMapping("/update")
+    public boolean updateTicket(Ticket ticket)
+    {
+        Ticket ticket1=ticketservice.update(ticket);
+        return true;
+    }
+
+    @GetMapping("/changestate")
+    public boolean changeState(Integer account_id,Integer film_id,String state)
+    {
+        Ticket ticket=ticketservice.updatestate(account_id, film_id, state);
+        return true;
+    }
 }

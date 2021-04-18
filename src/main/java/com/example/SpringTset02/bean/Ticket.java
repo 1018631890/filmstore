@@ -9,6 +9,15 @@ public class Ticket {
     private String ticket_endtime;
     private String ticket_state;
     private String film_name;
+    private Integer ticket_num;
+
+    public Integer getTicket_num() {
+        return ticket_num;
+    }
+
+    public void setTicket_num(Integer ticket_num) {
+        this.ticket_num = ticket_num;
+    }
 
     public String getFilm_name() {
         return film_name;

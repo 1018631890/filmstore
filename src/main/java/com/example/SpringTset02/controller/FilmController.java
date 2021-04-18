@@ -64,12 +64,15 @@ public class FilmController {
     public boolean Updatefilm(Film film)
     {
         Film[] filmlist=filmservice.update(film);
-        String path = filmlist[0].getFilm_pic();
-        System.out.println("旧路径"+path);
-        System.out.println("新路径"+filmlist[1].getFilm_pic());
-        path = path.substring(27);
-        System.out.println("删除路径"+path);
-        fdfsservice.delete(path);
+        if(!filmlist[0].getFilm_pic().equals(filmlist[1].getFilm_pic()))
+        {
+            String path = filmlist[0].getFilm_pic();
+//            System.out.println("旧路径"+path);
+//            System.out.println("新路径"+filmlist[1].getFilm_pic());
+            path = path.substring(27);
+            System.out.println("删除路径"+path);
+            fdfsservice.delete(path);
+        }
         return true;
     }
 
