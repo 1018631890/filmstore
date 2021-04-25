@@ -17,6 +17,12 @@ public class ticketService {
         return ticket;
     }
 
+    public Ticket getticket(Integer account_id,Integer film_id)
+    {
+        Ticket ticket=ticketmapper.Getticket(account_id, film_id);
+        return ticket;
+    }
+
     public Ticket insert(Ticket ticket)
     {
         ticketmapper.Insert(ticket);

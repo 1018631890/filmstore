@@ -18,6 +18,6 @@ public interface ticketMapper {
     @Delete("delete from ticket where account_id=#{account_id},film_id=#{film_id}")
     public int Delete(Integer account_id,Integer film_id);
 
-    @Update("update ticket set ticket_starttime=#{ticket_starttime},ticket_endtime=#{ticket_endtime},ticket_state=#{ticket_state},ticket_num=#{ticket_num} where account_id=#{account_id},film_id=#{film_id}")
+    @Update("update ticket set ticket_starttime=#{ticket_starttime},ticket_endtime=#{ticket_endtime},ticket_state=#{ticket_state},ticket_num=#{ticket_num} where account_id=#{account_id} and film_id=#{film_id}")
     public int Update(Ticket ticket);
 }

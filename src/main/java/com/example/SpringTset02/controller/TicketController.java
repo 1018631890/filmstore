@@ -52,4 +52,25 @@ public class TicketController {
         Ticket ticket=ticketservice.updatestate(account_id, film_id, state);
         return true;
     }
+
+    @GetMapping("/check")
+    public boolean checkticket(Integer account_id,Integer film_id)
+    {
+
+        if (ticketservice.getticket(account_id, film_id)!=null)
+        {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    @GetMapping("/changenum")
+    public boolean changenum(Integer account_id,Integer film_id,Integer num)
+    {
+        Ticket ticket=ticketservice.getticket(account_id, film_id);
+        ticket.setTicket_num(ticket.getTicket_num()+num);
+        Ticket ticket1=ticketservice.update(ticket);
+        return true;
+    }
 }
